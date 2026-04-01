@@ -1,0 +1,38 @@
+name: PersonalEHR
+options:
+  bundleIdPrefix: com.personalehr
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+
+packages:
+  Supabase:
+    url: https://github.com/supabase/supabase-swift
+    from: "2.0.0"
+
+targets:
+  PersonalEHR:
+    type: application
+    platform: iOS
+    sources:
+      - PersonalEHR
+    settings:
+      base:
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait"
+        INFOPLIST_KEY_NSCameraUsageDescription: "Camera access is needed to scan health documents"
+        INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "Photo library access is needed to upload health documents"
+        INFOPLIST_KEY_NSFaceIDUsageDescription: "Face ID is used to securely unlock the app"
+        SWIFT_STRICT_CONCURRENCY: complete
+        PRODUCT_BUNDLE_IDENTIFIER: com.personalehr.app
+    dependencies:
+      - package: Supabase
+        product: Supabase
+    entitlements:
+      path: PersonalEHR/Resources/PersonalEHR.entitlements
+      properties:
+        com.apple.developer.applesignin:
+          - Default
