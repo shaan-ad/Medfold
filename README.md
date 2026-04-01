@@ -46,8 +46,8 @@ supabase/             # Backend
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/shaan-ad/Personal-EHR.git
-   cd Personal-EHR
+   git clone https://github.com/shaan-ad/Medfold.git
+   cd Medfold
    ```
 
 2. **Configure Supabase**: Update `Medfold/Utilities/Constants.swift` with your Supabase project URL and anon key.
